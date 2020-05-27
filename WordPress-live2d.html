@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>  WordPress添加可爱的看板娘 | sanqi
+</title>
+  <link rel="canonical" href="/WordPress-live2d.html">
+
+
+  <link rel="stylesheet" href="/theme/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/theme/css/fontawesome.min.css">
+  <link rel="stylesheet" href="/theme/css/pygments/emacs.min.css">
+  <link rel="stylesheet" href="/theme/css/theme.css">
+  <link rel="stylesheet" href="/theme/css/sketchy.css">
+
+  
+  <meta name="description" content="步骤一： 这次我就不发资源了，因为整个部件比较大也不是很大，你直接在服务器上运行这个命令吧： git clone https://github.com/galnetwen/Live2D 你将在执行该命令的位置处发现一个名为“Live2D”的文件夹，学过git的同学可能了解相关机理，不过这不重要。 步骤二： 就在这个路径下，执行第二个命令： sudo cp -rf Live2D/live2d /www/wwwroot/blog.sanqii.top/wp-content/ 相关路径根据自己的相应路径进行更改哦，我的网站根目录就在/www/wwwroot/blog.sanqii.top处（还记得优化一中提到的网站根目录吧？） 步骤三： 好了现在进入你的WordPress主题所在的目录，例如 我的是~/wp-content/themes/twentyseventeen（优化一也介绍过的），此处的“~”指的是网站根目录，在我这里具体指的是 /www …">
+
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+<div class="row">
+    <div class="col-sm-4">
+      <a href="/">
+        <img class="img-fluid rounded" src=/images/author.jpg width=200 height=200 alt="sanqi">
+      </a>
+    </div>
+  <div class="col-sm-8">
+    <h1 class="title"><a href="/">sanqi</a></h1>
+      <p class="text-muted">要么孤独 要么庸俗</p>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="https://blog.csdn.net/San__Qi" target="_blank">CSDN</a></li>
+          <li class="list-inline-item"><a href="http://python.org/" target="_blank">Python.org</a></li>
+            <li class=" list-inline-item text-muted">|</li>
+          <li class="list-inline-item"><a class="fab fa-github" href="https://github.com/san-qi" target="_blank"></a></li>
+      </ul>
+  </div>
+</div>    </div>
+  </header>
+
+  <div class="main">
+    <div class="container">
+      <h1>  WordPress添加可爱的看板娘
+</h1>
+      <hr>
+  <article class="article">
+    <header>
+      <ul class="list-inline">
+        <li class="list-inline-item text-muted" title="2020-05-27T00:00:00+08:00">
+          <i class="fas fa-clock"></i>
+          Wed 27 May 2020
+        </li>
+        <li class="list-inline-item">
+          <i class="fas fa-folder-open"></i>
+          <a href="/category/wordpress.html">wordpress</a>
+        </li>
+          <li class="list-inline-item">
+            <i class="fas fa-tag"></i>
+              <a href="/tag/wordpress.html">#WordPress</a>          </li>
+      </ul>
+    </header>
+    <div class="content">
+      <h1>步骤一：</h1>
+<p>这次我就不发资源了，因为整个部件比较大也不是很大，你直接在服务器上运行这个命令吧：</p>
+<p><code>git clone https://github.com/galnetwen/Live2D</code></p>
+<p>你将在执行该命令的位置处发现一个名为“Live2D”的文件夹，学过git的同学可能了解相关机理，不过这不重要。</p>
+<h1>步骤二：</h1>
+<p>就在这个路径下，执行第二个命令：</p>
+<p><code>sudo cp -rf Live2D/live2d /www/wwwroot/blog.sanqii.top/wp-content/</code></p>
+<p>相关路径根据自己的相应路径进行更改哦，我的网站根目录就在/www/wwwroot/blog.sanqii.top处（还记得优化一中提到的网站根目录吧？）</p>
+<h1>步骤三：</h1>
+<p>好了现在进入你的WordPress主题所在的目录，例如 我的是~/wp-content/themes/twentyseventeen（优化一也介绍过的），此处的“~”指的是网站根目录，在我这里具体指的是</p>
+<p><code>/www/wwwroot/blog.sanqii.top/wp-content/themes/twentyseventeen</code></p>
+<h1>步骤四：</h1>
+<p>此处应该有 header .php这个文件，进入该文件，我们准备编辑。</p>
+<p>首先引入界面样式，在 head 标签内插入如下代码：</p>
+<p><code>&lt;link rel="stylesheet" href="/wp-content/live2d/css/live2d.css" /&gt;</code></p>
+<p>在 body 标签内合适的位置插入 Live2D 看板娘的元素，注意按照 Html 书写规范：</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">"landlord"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"message"</span> <span class="na">style</span><span class="o">=</span><span class="s">"opacity:0"</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">id</span><span class="o">=</span><span class="s">"live2d"</span> <span class="na">width</span><span class="o">=</span><span class="s">"280"</span> <span class="na">height</span><span class="o">=</span><span class="s">"250"</span> <span class="na">class</span><span class="o">=</span><span class="s">"live2d"</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"hide-button"</span><span class="p">&gt;</span>隐藏<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>然后退出保存，我们准备编辑下一个文件。</p>
+<h1>步骤五：</h1>
+<p>找到footer.php这个文件，进入该文件，我们准备编辑。</p>
+<p>在 body 标签结束前插入如下代码：</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/javascript"</span><span class="p">&gt;</span>
+    <span class="kd">var</span> <span class="nx">message_Path</span> <span class="o">=</span> <span class="s1">'/wp-content/live2d/'</span>
+    <span class="kd">var</span> <span class="nx">home_Path</span> <span class="o">=</span> <span class="s1">'https://haremu.com/'</span>  <span class="c1">//此处修改为你的域名，必须带斜杠</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/javascript"</span> <span class="na">src</span><span class="o">=</span><span class="s">"/wp-content/live2d/js/live2d.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/javascript"</span> <span class="na">src</span><span class="o">=</span><span class="s">"/wp-content/live2d/js/message.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/javascript"</span><span class="p">&gt;</span>
+    <span class="nx">loadlive2d</span><span class="p">(</span><span class="s2">"live2d"</span><span class="p">,</span> <span class="s2">"/wp-content/live2d/model/tia/model.json"</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>OK，退出保存。</p>
+<h1>步骤六：</h1>
+<p>这时候已经大功告成了，但如果你想改一下人物说的话也是可以的。</p>
+<p>先进入刚刚live2d所在的文件夹：这里是~/wp-content/live2d，你会发现一个 message.json 文件，进入修改相应选项。</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="s2">"mouseover"</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"selector"</span><span class="o">:</span> <span class="s2">".title a"</span><span class="p">,</span>  <span class="c1">//此处修改为你页面元素的标签名</span>
+            <span class="s2">"text"</span><span class="o">:</span> <span class="p">[</span><span class="s2">"要看看 {text} 么？"</span><span class="p">]</span>  <span class="c1">//此处修改为你需要提示的文字</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">"selector"</span><span class="o">:</span> <span class="s2">"#searchbox"</span><span class="p">,</span>
+            <span class="s2">"text"</span><span class="o">:</span> <span class="p">[</span><span class="s2">"在找什么东西呢，需要帮忙吗？"</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"click"</span><span class="o">:</span> <span class="p">[</span>  <span class="c1">//此处是 Live2D 看板娘的触摸事件提示</span>
+        <span class="p">{</span>
+            <span class="s2">"selector"</span><span class="o">:</span> <span class="s2">"#landlord #live2d"</span><span class="p">,</span>
+            <span class="s2">"text"</span><span class="o">:</span> <span class="p">[</span><span class="s2">"不要动手动脚的！快把手拿开~~"</span><span class="p">,</span> <span class="s2">"真…真的是不知羞耻！"</span><span class="p">,</span><span class="s2">"Hentai！"</span><span class="p">,</span> <span class="s2">"再摸的话我可要报警了！⌇●﹏●⌇"</span><span class="p">,</span> <span class="s2">"110吗，这里有个变态一直在摸我(ó﹏ò｡)"</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>未出现效果的话注意刷新一下就好了</p>
+<p>感谢该材料<a href="https://github.com/galnetwen/Live2D">来源</a></p>
+<p>还想着弄一个动态背景的 。</p>
+    </div>
+  </article>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+<div class="row">
+  <ul class="col-sm-6 list-inline">
+    <li class="list-inline-item"><a href="/archives.html">Archives</a></li>
+    <li class="list-inline-item"><a href="/categories.html">Categories</a></li>
+      <li class="list-inline-item"><a href="/tags.html">Tags</a></li>
+  </ul>
+  <p class="col-sm-6 text-sm-right text-muted">
+    Generated by <a href="https://github.com/getpelican/pelican" target="_blank">Pelican</a>
+    / <a href="https://github.com/nairobilug/pelican-alchemy" target="_blank">&#x2728;</a>
+  </p>
+</div>    </div>
+  </footer>
+
+</body>
+
+</html>
